@@ -1,9 +1,10 @@
 void plot()  {
 
 //double w_DYLL = 0.0804;  // Scale factor for Powheg sample (1997 pb) with number of events = 49653546 with 25 ns data Lumi = 2000 pb-1
-TFile f1("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww10.root");
-TFile f2("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww11.root");
-//TFile f1("/afs/cern.ch/user/h/hongyi/public/ww7.root");
+//TFile f1("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww10.root");
+//TFile f2("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww11.root");
+TFile f1("/eos/user/h/hongyi/ww_data/Powheg/ww10.root");
+TFile f2("/eos/user/h/hongyi/ww_data/Powheg/ww11.root");
  
 TTree *T1 = (TTree*)f1.Get("ww");
 TTree *T2 = (TTree*)f2.Get("ww");

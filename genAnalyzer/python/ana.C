@@ -250,7 +250,7 @@ void ana::Loop()
         status16.clear();
 //	TFile *ofile = new TFile("ww.root", "recreate");
 //        TFile ofile("ww.root", "recreate");
-        TFile *ofile = new TFile("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww11.root", "recreate");
+        TFile *ofile = new TFile("/eos/user/h/hongyi/ww_data/Powheg/ww10.root", "recreate");
 //        TFile *ofile = new TFile("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww18.root", "recreate");
 	ofile->cd();
         TTree* ww  = new TTree("ww", "ww");
@@ -483,9 +483,10 @@ void ana::Loop()
 }
 	
 
-	
+	if(Wno.size()!=2)
+		continue;	
 
-	if (Wno.size() == 2 )
+	if (Wno.size() == 2 ){
 		if(genWQ->at(0) * genWQ->at(1) == -1){
 		w1vector.SetPtEtaPhiM(genWPt->at(0), genWEta->at(0), genWPhi->at(0), genWMass->at(0));
                 w2vector.SetPtEtaPhiM(genWPt->at(1), genWEta->at(1), genWPhi->at(1), genWMass->at(1));
@@ -495,8 +496,9 @@ void ana::Loop()
 
 
 }
-	Wno.clear();
-
+	else
+		 continue;
+}
 /*
         if(genWstatus->size() == 8){
                 for(int i = 0; i < genWstatus->size();i++){
@@ -549,7 +551,7 @@ void ana::Loop()
 
 //      leading pt/sub-leading pt/electron eta cut/muon eta cut
 //                        if(((genLeptPt->at(0) > 25 && genLeptPt->at(1) > 15) || (genLeptPt->at(0)> 15 && genLeptPt->at(1) > 25)) && (genLeptEta->at(0)<2.5 && genLeptEta->at(1) <2.4)){
-				if( genLeptPt->at(0) > genLeptPt->at(1)){
+				if( genLeptPt->at(0) > genLeptPt->at(1) && (genLeptPt->at(0) > 25 && genLeptPt ->at(1) > 15)){
 	std::cout << "it happens 1st time" << std::endl;
 // we will just record information here
 	
@@ -593,7 +595,30 @@ void ana::Loop()
 //                                nmuon_phi->Fill(genLeptPhi->at(1), weights);
 //                                nmuon_pt->Fill(genLeptPt->at(1), weights);
 //                                nmuon_e->Fill(lmuvector.E(), weights);
+        int n_jet = 0;
+        for (int j = 0; j < genJetPt->size(); j++){
+                if (genJetPt->at(j) > 30 && genJetEta->at(j) < 5){
+                        jet_m.push_back(genJetMass->at(j));
+                        jet_eta.push_back(genJetEta->at(j));
+                        jet_phi.push_back(genJetPhi->at(j));
+                        jet_pt.push_back(genJetPt->at(j));
+                        n_jet ++;
+}
+}
+        num_jet = n_jet;
+        std::cout << num_jet << std::endl;
 
+        std::cout << "Now we are processinginginging" << std::endl;
+        if (n_jet >= 1){
+                leadingjet_pt = jet_pt.at(n_jet -1);
+                leadingjet_phi = jet_phi.at(n_jet -1);
+                leadingjet_eta = jet_eta.at(n_jet -1);
+}
+        if(n_jet >= 2){
+                subleadingjet_pt = jet_pt.at(n_jet - 2);
+                subleadingjet_phi = jet_phi.at(n_jet - 2);
+                subleadingjet_eta = jet_eta.at(n_jet - 2);
+}
 }
         
 
@@ -601,7 +626,7 @@ void ana::Loop()
 
 //                if (genNuPdgId->at(0) == 13  && genLeptId->at(1) ==-11) {
 //                        if(((genLeptPt->at(0) > 25 && genLeptPt->at(1) > 15) || (genLeptPt->at(0)> 15 && genLeptPt->at(1) > 25)) && (genLeptEta->at(1)<2.5 && genLeptEta->at(0) <2.4)){
-                        if( genLeptPt->at(0) < genLeptPt->at(1)){
+                        if( genLeptPt->at(0) < genLeptPt->at(1) && (genLeptPt->at(0) > 15 && genLeptPt->at(1) > 25)){
         std::cout << "it happens 2nd time" << std::endl;
                                 subleading_m=(genLeptM->at(0));
                                 subleading_pt=(genLeptPt->at(0));
@@ -632,6 +657,35 @@ void ana::Loop()
                                 lllvector = lmuvector + levector;
                                 mll = (lllvector.M());
                                 ptll = (lllvector.Pt());
+
+
+        int n_jet = 0;
+        for (int j = 0; j < genJetPt->size(); j++){
+                if (genJetPt->at(j) > 30 && genJetEta->at(j) < 5){
+                        jet_m.push_back(genJetMass->at(j));
+                        jet_eta.push_back(genJetEta->at(j));
+                        jet_phi.push_back(genJetPhi->at(j));
+                        jet_pt.push_back(genJetPt->at(j));
+                        n_jet ++;
+}
+}
+        num_jet = n_jet;
+        std::cout << num_jet << std::endl;
+
+        std::cout << "Now we are processinginginging" << std::endl;
+        if (n_jet >= 1){
+                leadingjet_pt = jet_pt.at(n_jet -1);
+                leadingjet_phi = jet_phi.at(n_jet -1);
+                leadingjet_eta = jet_eta.at(n_jet -1);
+}
+        if(n_jet >= 2){
+                subleadingjet_pt = jet_pt.at(n_jet - 2);
+                subleadingjet_phi = jet_phi.at(n_jet - 2);
+                subleadingjet_eta = jet_eta.at(n_jet - 2);
+}
+
+
+
 }
 }
 }
@@ -737,64 +791,44 @@ void ana::Loop()
 //	return temp[temp.size()- nth];
 //
 //}
-
+////////////////////////////////////////////////////////////////////////////////////
  //Filling histogram
+/*
 	int n_jet = 0;
-//	double leading_pt = 0;
-//        vector<double> temp_pt;
-//        vector<double> temp_m;
-//        vector<double> temp_eta;
-//        vector<double> temp_phi;
-//
-//        temp_pt.clear();
-//        temp_m.clear();
-//        temp_eta.clear();
-//        temp_phi.clear();
-
         for (int j = 0; j < genJetPt->size(); j++){
                 if (genJetPt->at(j) > 30 && genJetEta->at(j) < 5){
                         jet_m.push_back(genJetMass->at(j));
                         jet_eta.push_back(genJetEta->at(j));
                         jet_phi.push_back(genJetPhi->at(j));
                         jet_pt.push_back(genJetPt->at(j));
-//                        temp_m.push_back(genJetMass->at(j));
-//                        temp_eta.push_back(genJetEta->at(j));
-//                        temp_phi.push_back(genJetPhi->at(j));
-//                        temp_pt.push_back(genJetPt->at(j));
                         n_jet ++;
 }
 }
 	num_jet = n_jet;
 	std::cout << num_jet << std::endl;
 
-//        double jet2leading_m;
-//        double jet2leading_pt;
-//        double jet2leading_eta;
-//        double jet2leading_phi;
-//        double jet2leading_e;
-//
-//        double jet2subleading_m;
-//        double jet2subleading_pt;
-//        double jet2subleading_eta;
-//        double jet2subleading_phi;
-//        double jet2subleading_e;
 	std::cout << "Now we are processinginginging" << std::endl;
 	if (n_jet >= 1){
-
 		leadingjet_pt = jet_pt.at(n_jet -1);
                 leadingjet_phi = jet_phi.at(n_jet -1);
                 leadingjet_eta = jet_eta.at(n_jet -1);
-
-
-
 }
 	if(n_jet >= 2){
 		subleadingjet_pt = jet_pt.at(n_jet - 2);
                 subleadingjet_phi = jet_phi.at(n_jet - 2);
                 subleadingjet_eta = jet_eta.at(n_jet - 2);
-
-
 }
+*/
+
+
+
+
+
+
+
+
+
+
 
 
 
