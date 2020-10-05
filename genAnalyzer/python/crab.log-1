@@ -1,0 +1,269 @@
+DEBUG 2020-08-07 05:38:15.424 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 05:38:15.424 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 05:38:15.447 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 05:38:15.447 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 05:38:15.447 UTC: 	 Could not find CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3; creating a new one.
+INFO 2020-08-07 05:38:15.450 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 05:38:15.450 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 05:38:15.452 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 05:38:15.452 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 05:38:15.455 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-07 05:39:01.347 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 05:39:01.348 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 05:39:01.373 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 05:39:01.374 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 05:39:01.374 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-07 05:39:01.375 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 05:39:01.375 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 05:39:01.376 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 05:39:01.376 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 05:39:01.378 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-07 05:40:22.895 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 05:40:22.896 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 05:40:22.963 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 05:40:22.964 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 05:40:22.964 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-07 05:40:22.965 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 05:40:22.965 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 05:40:22.966 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 05:40:22.967 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 05:40:22.969 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-07 05:43:55.731 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 05:43:55.731 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 05:43:55.752 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 05:43:55.752 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 05:43:55.752 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-07 05:43:55.753 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 05:43:55.753 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 05:43:55.754 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 05:43:55.755 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 05:43:55.757 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-07 06:00:34.916 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 06:00:34.916 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 06:00:34.932 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 06:00:34.932 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 06:00:34.933 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-07 06:00:34.933 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 06:00:34.934 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 06:00:34.935 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 06:00:34.935 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 06:00:34.939 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-07 06:01:05.145 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 06:01:05.146 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 06:01:05.173 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 06:01:05.173 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 06:01:05.173 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-07 06:01:05.174 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 06:01:05.174 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 06:01:05.176 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 06:01:05.176 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 32)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 06:01:05.178 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-07 15:08:07.545 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 15:08:07.545 UTC: 	 Running on: Linux lxplus728.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 15:08:07.573 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 15:08:07.573 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 15:08:07.575 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-07 15:08:07.591 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 15:08:07.591 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 15:08:07.592 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 36)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 15:08:07.593 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 36)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 15:08:07.597 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-07 15:12:10.043 UTC: 	 CRAB Client version: v3.200531
+DEBUG 2020-08-07 15:12:10.044 UTC: 	 Running on: Linux lxplus728.cern.ch 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-07 15:12:10.059 UTC: 	 OpenSSl version: OpenSSL 1.0.2k-fips  26 Jan 2017 (Library: OpenSSL 1.0.2d-fips 9 Jul 2015)
+DEBUG 2020-08-07 15:12:10.059 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-07 15:12:10.059 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-07 15:12:10.060 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-07 15:12:10.060 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-07 15:12:10.062 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 37)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-07 15:12:10.062 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 319, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200531.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 37)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-07 15:12:10.068 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
+DEBUG 2020-08-27 20:44:07.296 UTC: 	 CRAB Client version: v3.200812
+DEBUG 2020-08-27 20:44:07.296 UTC: 	 Running on: Linux lxplus753.cern.ch 3.10.0-1127.18.2.el7.x86_64 #1 SMP Sun Jul 26 15:27:06 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2020-08-27 20:44:07.296 UTC: 	 Executing command: 'submit'
+DEBUG 2020-08-27 20:44:07.298 UTC: 	 Found CRAB cache file /afs/cern.ch/user/h/hongyi/.crab3
+INFO 2020-08-27 20:44:07.335 UTC: 	 Will use CRAB configuration file crab_cfg.py
+DEBUG 2020-08-27 20:44:07.336 UTC: 	 Loading CRAB configuration file.
+ERROR 2020-08-27 20:44:07.337 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 37)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2020-08-27 20:44:07.338 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200812.00/bin/crab", line 165, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200812.00/bin/crab", line 150, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200812.00/lib/CRABClient/Commands/submit.py", line 35, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200812.00/lib/CRABClient/Commands/SubCommand.py", line 311, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.200812.00/lib/CRABClient/Commands/SubCommand.py", line 88, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crab_cfg.py, line 37)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2020-08-27 20:44:07.340 UTC: 	 Log file is /afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/crab.log
