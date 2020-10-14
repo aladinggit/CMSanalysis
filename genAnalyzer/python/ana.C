@@ -196,8 +196,12 @@ void ana::Loop()
         double jet8subleading_e= -999;
 */
         double weights;
+	double weights1009;
+	double weights1005;
 	double startweight;
 	double totalweight;
+        double totalweight1005;
+        double totalweight1009;
 
 	double leadingjet_pt = -999;
 	double leadingjet_eta = -999;
@@ -250,7 +254,7 @@ void ana::Loop()
         status16.clear();
 //	TFile *ofile = new TFile("ww.root", "recreate");
 //        TFile ofile("ww.root", "recreate");
-        TFile *ofile = new TFile("/eos/user/h/hongyi/ww_data/Powheg/ww10.root", "recreate");
+        TFile *ofile = new TFile("/eos/user/h/hongyi/ww_data/Powheg/ww11.root", "recreate");
 //        TFile *ofile = new TFile("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww18.root", "recreate");
 	ofile->cd();
         TTree* ww  = new TTree("ww", "ww");
@@ -306,6 +310,9 @@ void ana::Loop()
         ww ->Branch("wwpt", &wwpt);
 	ww ->Branch("startweight", &startweight);
 	ww ->Branch("totalweight", &totalweight);
+
+        ww ->Branch("totalweight1009", &totalweight1009);
+        ww ->Branch("totalweight1005", &totalweight1005);
 
 
         ww ->Branch("leading_m", &leading_m);
@@ -401,6 +408,8 @@ void ana::Loop()
         ww ->Branch("jet8subleading_phi", &jet5subleading_phi);
 */
 	ww ->Branch("weights", &weights);
+	ww ->Branch("weights1009, &weights1009");
+	ww ->Branch("weights1005", &weights1005);
 //        ww ->Branch("j8etleading_e", &leading_e);
 //        ww ->Branch("ele_m", &ele_m);
 //        ww ->Branch("ele_pt", &ele_pt);
@@ -436,10 +445,15 @@ void ana::Loop()
 //        ww ->Branch("jet_eta", &jet_eta);
 //        ww ->Branch("jet_phi", &jet_phi);
 //        ww ->Branch("njet", &njet);
-
-
-
-
+   int passing_0jet = 0;
+   int passing_2lepton = 0;
+   int passing_pt = 0;
+   int passing_1jet =0;
+   int passing_2jet =0;
+   int passing_3jet =0;
+   int couting = 0;
+   int cot =0;
+   int cjt =0;
    if (fChain == 0) return;
         TLorentzVector levector, lmuvector, lllvector, wwvector, w1vector, w2vector;
    Long64_t nentries = fChain->GetEntriesFast();
@@ -459,12 +473,24 @@ void ana::Loop()
 	startweight = startWeight;
 	
 
-	std::cout << "starting scaning" << ID_of_weights_NNLOPS->size() <<std::endl;
+//	std::cout << "starting scaning" << ID_of_weights_NNLOPS->size() <<std::endl;
 	for(int k =0; k < ID_of_weights_NNLOPS->size(); k++){
 		if (ID_of_weights_NNLOPS->at(k) == 1001){
 			weights	= LHEweights->at(k);
 
-//			std::cout <<"k" <<k << std::endl;
+}
+}
+
+        for(int k =0; k < ID_of_weights_NNLOPS->size(); k++){
+                if (ID_of_weights_NNLOPS->at(k) == 1009){
+                        weights1009 = LHEweights->at(k);
+
+}
+}
+        for(int k =0; k < ID_of_weights_NNLOPS->size(); k++){
+                if (ID_of_weights_NNLOPS->at(k) == 1005){
+                        weights1005 = LHEweights->at(k);
+
 }
 }
 // now checking if the weights and nominal weights are of the same sign
@@ -473,31 +499,35 @@ void ana::Loop()
 //	zz +=1;
 
 	totalweight = startweight * weights;
+        totalweight1009 = startweight * weights1009;
+        totalweight1005 = startweight * weights1005;
 //	for ww
 	vector<int> Wno;
 	Wno.clear();
-	std::cout << "watch out!!!!!!!!!"<<genWPt->size() <<std::endl;
+//	std::cout << "watch out!!!!!!!!!"<<genWPt->size() <<std::endl;
 	for(int i = 0; i< genWPt->size(); i++){
 		if(genWstatus->at(i) == 22 )
 			Wno.push_back(i);
 }
 	
-
-	if(Wno.size()!=2)
-		continue;	
-
+        if (Wno.size() != 2 )
+		continue;
 	if (Wno.size() == 2 ){
-		if(genWQ->at(0) * genWQ->at(1) == -1){
-		w1vector.SetPtEtaPhiM(genWPt->at(0), genWEta->at(0), genWPhi->at(0), genWMass->at(0));
-                w2vector.SetPtEtaPhiM(genWPt->at(1), genWEta->at(1), genWPhi->at(1), genWMass->at(1));
-		wwvector = w1vector + w2vector;
-		wwm = wwvector.M();
-		wwpt = wwvector.Pt();
-
-
+		int k =0;
+		int l =0;
+		k = Wno.at(0);
+		l = Wno.at(1);
+		if(genWQ->at(k) * genWQ->at(l) == -1){
+//		w1vector.SetPtEtaPhiM(genWPt->at(m), genWEta->at(m), genWPhi->at(m), genWMass->at(m));
+//                w2vector.SetPtEtaPhiM(genWPt->at(n), genWEta->at(n), genWPhi->at(n), genWMass->at(n));
+//		wwvector = w1vector + w2vector;
+//		wwm = wwvector.M();
+//		wwpt = wwvector.Pt();
+//
+//		couting ++;
+//		std::cout << "The couting is "<< couting<< std::endl;
 }
-	else
-		 continue;
+		else continue;
 }
 /*
         if(genWstatus->size() == 8){
@@ -545,16 +575,18 @@ void ana::Loop()
 	if (genLeptMother->size() == 2){
 //    	std::cout<< "it happens" << std::endl; 
 //	std::cout << genLeptMother->at(0) << genLeptId->at(0) << genLeptId->at(1) <<std::endl;     
- 	       if ((genLeptId->at(0) *  genLeptId->at(1) )== -143){
-                                if(((genLeptId->at(0) == 11 || genLeptId->at(0) == -11)&& (abs(genLeptEta -> at(0)) <2.5 &&  abs(genLeptEta->at(1))< 2.4)) || (abs(genLeptEta -> at(0)) < 2.4 && abs(genLeptEta -> at(1)) <2.5)){
+ 	       if ((genLeptId->at(0) *  genLeptId->at(1) )== -143 || (genLeptId->at(0) *  genLeptId->at(1) )== -121 || (genLeptId->at(0) *  genLeptId->at(1) )== -169) {
 
+			passing_2lepton ++;
+                                if(       ((genLeptId->at(0) == 11 || genLeptId->at(0) == -11)   &&(   genLeptId->at(1) == 13 || genLeptId->at(1) == -13)     && (abs(genLeptEta -> at(1)) <2.4 &&  abs(genLeptEta->at(0))< 2.5)) ||    (   ((genLeptId->at(0) == 11 || genLeptId->at(0) == -11))&& (abs(genLeptEta -> at(0)) <2.5 &&  abs(genLeptEta->at(1))< 2.5)) ||((genLeptId->at(0) == 13 || genLeptId->at(0) == -13) &&  (abs(genLeptEta -> at(0)) < 2.4 && abs(genLeptEta -> at(1)) <2.4))){
 
+				std::cout <<" the number of the ww system is " << Wno.size() << std::endl;
 //      leading pt/sub-leading pt/electron eta cut/muon eta cut
 //                        if(((genLeptPt->at(0) > 25 && genLeptPt->at(1) > 15) || (genLeptPt->at(0)> 15 && genLeptPt->at(1) > 25)) && (genLeptEta->at(0)<2.5 && genLeptEta->at(1) <2.4)){
 				if( genLeptPt->at(0) > genLeptPt->at(1) && (genLeptPt->at(0) > 25 && genLeptPt ->at(1) > 15)){
 	std::cout << "it happens 1st time" << std::endl;
 // we will just record information here
-	
+			passing_pt ++;
 //                                leading_m.push_back(genLeptM->at(0));
 //                                leading_pt.push_back(genLeptPt->at(0));
 //                                leading_eta.push_back(genLeptEta->at(0));
@@ -574,7 +606,7 @@ void ana::Loop()
                                 subleading_pt=(genLeptPt->at(1));
                                 subleading_eta=(genLeptEta->at(1));
                                 subleading_phi=(genLeptPhi->at(1));
-
+				
 				lmuvector.SetPtEtaPhiM(genLeptPt->at(1), genLeptEta->at(1), genLeptPhi->at(1), genLeptM->at(1));
                                 //lmuvector.SetPhi(genLeptPhi->at(1));
                                 //lmuvector.SetPt(genLeptPt->at(1));
@@ -584,6 +616,8 @@ void ana::Loop()
 				lllvector = lmuvector + levector;
 				mll = (lllvector.M());	
 				ptll = (lllvector.Pt());
+				cot++;
+			                std::cout << "containg lepton entries" << cot << std::endl;
 //			       	e_m->Fill(genLeptM->at(0), weights);
 //                                e_eta->Fill(genLeptEta->at(0), weights);
 //                                e_phi->Fill(genLeptPhi->at(0), weights);
@@ -595,7 +629,30 @@ void ana::Loop()
 //                                nmuon_phi->Fill(genLeptPhi->at(1), weights);
 //                                nmuon_pt->Fill(genLeptPt->at(1), weights);
 //                                nmuon_e->Fill(lmuvector.E(), weights);
-        int n_jet = 0;
+     
+        for(int i = 0; i< genWPt->size(); i++){
+                if(genWstatus->at(i) == 22 )
+                        Wno.push_back(i);
+}
+                int m =0;
+                int n =0;
+                m = Wno.at(0);
+                n = Wno.at(1);
+                if(genWQ->at(m) * genWQ->at(n) == -1){
+                w1vector.SetPtEtaPhiM(genWPt->at(m), genWEta->at(m), genWPhi->at(m), genWMass->at(m));
+                w2vector.SetPtEtaPhiM(genWPt->at(n), genWEta->at(n), genWPhi->at(n), genWMass->at(n));
+                wwvector = w1vector + w2vector;
+                wwm = wwvector.M();
+                wwpt = wwvector.Pt();
+
+                couting ++;
+                std::cout << "The couting is "<< couting<< std::endl;
+
+}
+
+
+
+   int n_jet = 0;
         for (int j = 0; j < genJetPt->size(); j++){
                 if (genJetPt->at(j) > 30 && genJetEta->at(j) < 5){
                         jet_m.push_back(genJetMass->at(j));
@@ -607,12 +664,18 @@ void ana::Loop()
 }
         num_jet = n_jet;
         std::cout << num_jet << std::endl;
+				if (n_jet == 0) passing_0jet ++;
+				if (n_jet == 1)	passing_1jet ++;
+				if (n_jet == 2) passing_2jet ++;
+                                if (n_jet > 2) passing_3jet ++;				
 
-        std::cout << "Now we are processinginginging" << std::endl;
+//        std::cout << "Now we are processinginginging" << std::endl;
         if (n_jet >= 1){
                 leadingjet_pt = jet_pt.at(n_jet -1);
                 leadingjet_phi = jet_phi.at(n_jet -1);
                 leadingjet_eta = jet_eta.at(n_jet -1);
+		cjt ++;
+		std::cout << "containg jet" << cjt << std::endl;
 }
         if(n_jet >= 2){
                 subleadingjet_pt = jet_pt.at(n_jet - 2);
@@ -640,7 +703,7 @@ void ana::Loop()
                                 //lmuvector.SetM(genLeptM->at(0));
                                 //lmuvector.SetEta(genLeptEta->at(0));
                                 subleading_e=(lmuvector.E());
-                                
+                      passing_pt++;          
 				leading_m = (genLeptM->at(1));
                                 leading_pt=(genLeptPt->at(1));
                                 leading_eta=(genLeptEta->at(1));
@@ -658,6 +721,28 @@ void ana::Loop()
                                 mll = (lllvector.M());
                                 ptll = (lllvector.Pt());
 
+				cot ++;
+			                                        std::cout << "containg lepton entries" << cot << std::endl;
+
+
+        for(int i = 0; i< genWPt->size(); i++){
+                if(genWstatus->at(i) == 22 )
+                        Wno.push_back(i);
+}
+                int m =0;
+                int n =0;
+                m = Wno.at(0);
+                n = Wno.at(1);
+                if(genWQ->at(m) * genWQ->at(n) == -1){
+                w1vector.SetPtEtaPhiM(genWPt->at(m), genWEta->at(m), genWPhi->at(m), genWMass->at(m));
+                w2vector.SetPtEtaPhiM(genWPt->at(n), genWEta->at(n), genWPhi->at(n), genWMass->at(n));
+                wwvector = w1vector + w2vector;
+                wwm = wwvector.M();
+                wwpt = wwvector.Pt();
+
+                couting ++;
+                std::cout << "The couting is "<< couting<< std::endl;
+}
 
         int n_jet = 0;
         for (int j = 0; j < genJetPt->size(); j++){
@@ -669,6 +754,10 @@ void ana::Loop()
                         n_jet ++;
 }
 }
+	                                if (n_jet == 0) passing_0jet ++;
+                                if (n_jet == 1) passing_1jet ++;
+                                if (n_jet == 2) passing_2jet ++;
+                                if (n_jet > 2) passing_3jet ++;
         num_jet = n_jet;
         std::cout << num_jet << std::endl;
 
@@ -677,6 +766,8 @@ void ana::Loop()
                 leadingjet_pt = jet_pt.at(n_jet -1);
                 leadingjet_phi = jet_phi.at(n_jet -1);
                 leadingjet_eta = jet_eta.at(n_jet -1);
+		cjt++;
+                                        std::cout << "containg lepton entries" << cjt << std::endl;
 }
         if(n_jet >= 2){
                 subleadingjet_pt = jet_pt.at(n_jet - 2);
@@ -939,10 +1030,10 @@ void ana::Loop()
 
 //        njet->Fill(n_jet, weights);
 	//std::cout <<weights<< std::endl;
-        std::cout << "doing" << std::endl;
+   //     std::cout << "doing" << std::endl;
 	ww->Fill();
 	count += 1;
-	std::cout << "count = " << count <<std::endl;       
+//	std::cout << "count = " << count <<std::endl;       
 
 
 
@@ -1076,7 +1167,7 @@ void ana::Loop()
         jet_m.clear();
         jet_eta.clear();
         jet_phi.clear();
-	std::cout << "reset" << std::endl;
+//	std::cout << "reset" << std::endl;
 }
 
 ofile->cd();
@@ -1189,6 +1280,14 @@ ww -> Write();
 //
 //delete num_jet;
 
+                                        std::cout << "containg lepton entries" << cot << std::endl;
+                                        std::cout << "containg jet entries" << cjt << std::endl;
+					std::cout << "passing 2 lepton" << passing_2lepton << std::endl;
+                                        std::cout << "passing pt" << passing_pt << std::endl;
+                                        std::cout << "passing 0jet" <<passing_0jet  << std::endl;
+                                        std::cout << "passing 1jet" <<passing_1jet  << std::endl;
+                                        std::cout << "passing 2jet" <<passing_2jet  << std::endl;
+                                        std::cout << "passing 3jet" <<passing_3jet  << std::endl;
 
 //delete jet_pt ;
 //delete jet_m ; 

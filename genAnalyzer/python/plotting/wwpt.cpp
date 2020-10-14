@@ -1,9 +1,10 @@
 void plot()  {
 
 //double w_DYLL = 0.0804;  // Scale factor for Powheg sample (1997 pb) with number of events = 49653546 with 25 ns data Lumi = 2000 pb-1
-
-TFile f1("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww10.root");
-TFile f2("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww11.root");
+TFile f2("/eos/user/h/hongyi/ww_data/Powheg/ww11.root");
+TFile f1("/eos/user/h/hongyi/ww_data/Powheg/ww10.root");
+//TFile f1("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww10.root");
+//TFile f2("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww11.root");
 //TFile f1("/afs/cern.ch/user/h/hongyi/public/ww7.root");
  
 TTree *T1 = (TTree*)f1.Get("ww");
@@ -46,8 +47,8 @@ cout << "With Weight = " << j1->Integral() << endl;
 cout << "Without Weight = "  << j2->Integral() << endl;
 
 
-j2->Scale(13273 * 35.9 / 1.999e+06);
-j1->Scale(13273 * 35.9 / 2.3025e+07);
+j2->Scale(12178 * 35.9 / 1.999e+06);
+j1->Scale(1327.3 *9 * 35.9 / 2.3025e+07);
 
 TH1F *h1 = (TH1F *)j1->Clone();
 TH1F *h2 = (TH1F *)j2->Clone();
@@ -74,7 +75,7 @@ TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.2);
   h1->SetStats(0);
   h1->GetYaxis()->SetTitle("");
   h1->SetMinimum(0.8);
-  h1->SetMaximum(1.6);
+  h1->SetMaximum(1.8);
   h1->SetTitle("");
   h1->GetXaxis()->SetTitle("wwpt (GeV)");
   h1->GetXaxis()->SetTitleOffset(1.3);

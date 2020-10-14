@@ -33,6 +33,8 @@ void stwcalculating::Loop()
 
    Long64_t nentries = fChain->GetEntriesFast();
    double sum = 0;
+   double plus = 0;
+   double minus = 0;
    Long64_t nbytes = 0, nb = 0;
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
       Long64_t ientry = LoadTree(jentry);
@@ -40,6 +42,10 @@ void stwcalculating::Loop()
       nb = fChain->GetEntry(jentry);   nbytes += nb;
       // if (Cut(ientry) < 0) continue;
 	sum = sum + startweight;
+	if (startweight > 0)  plus++;
+	else minus ++;
    }
 	std::cout << sum << std::endl;
+        std::cout << minus << std::endl;
+        std::cout << plus << std::endl;
 }

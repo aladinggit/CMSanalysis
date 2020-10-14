@@ -8,8 +8,8 @@ void plot()  {
 TFile f1("/eos/user/h/hongyi/ww_data/Powheg/ww10.root");
 TFile f2("/eos/user/h/hongyi/ww_data/Powheg/ww11.root");
 
-TTree *T1 = (TTree*)f1.Get("ww");
 TTree *T2 = (TTree*)f2.Get("ww");
+TTree *T1 = (TTree*)f1.Get("ww");
 TFile * file = new TFile("plots.root","RECREATE"); 
 
 //========================================================================== canvas 1 starts =======================
@@ -41,10 +41,14 @@ T2->Draw("leading_pt>>j2","startweight");
   j2->SetStats(0); 
   j2->GetYaxis()->SetLabelSize(0.020);
 
+
+j2->Scale(12178 * 35.9 / 1.999e+06);
+j1->Scale(1327.3 *9* 35.9 / 2.3025e+07);
+
 //j2->Scale(13273 * 35.9 / 2.3025e+07);
 //j1->Scale(13273 * 35.9 / 2.3025e+07);
-j2->Scale(13273 * 35.9 / 1.999e+06);
-j1->Scale(13273 * 35.9 / 2.3025e+07);
+//j2->Scale(12 * 35.9 / 1.999e+06);
+//j1->Scale(13273 * 35.9 / 2.3025e+07);
 //j2->Scale(w_DYLL);
 //j1_1->Scale(1.);
 
@@ -75,8 +79,8 @@ TPad *pad2 = new TPad("pad2","pad2",0,0,1,0.2);
   h1->SetMarkerStyle(21);
   h1->SetStats(0);
   h1->GetYaxis()->SetTitle("");
-  h1->SetMinimum(0.8);
-  h1->SetMaximum(1.6);
+  h1->SetMinimum(0.6);
+  h1->SetMaximum(2.0);
   h1->SetTitle("");
   h1->GetXaxis()->SetTitle("Leading Lept PT (GeV)");
   h1->GetXaxis()->SetTitleOffset(1.3);
