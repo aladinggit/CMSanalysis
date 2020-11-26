@@ -149,8 +149,10 @@ ana::ana(TTree *tree) : fChain(0)
 //      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/eos/cms/store/group/phys_higgs/cmshww/arun/WW/MCStudies/WW_NNLOPS/WWJTo2L2Nu_NNLOPS_TuneCUEP8M1_13TeV-powheg-pythia8/crab_WW_NNLOPS/200807_095842/0000/WW_Powheg_NNLOPS.root");
 //      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("WW_pair_production_1.root");
       TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/eos/cms/store/group/phys_higgs/cmshww/arun/WW/MCStudies/WW_Powheg/WWTo2L2Nu_13TeV-powheg/crab_WW_Powheg/200807_103443/0000/WW_Powheg.root");
+//      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/eos/user/h/hongyi/original/nnlops2018.root");
       if (!f || !f->IsOpen()) {
 //         f = new TFile("/eos/cms/store/group/phys_higgs/cmshww/arun/WW/MCStudies/WW_NNLOPS/WWJTo2L2Nu_NNLOPS_TuneCUEP8M1_13TeV-powheg-pythia8/crab_WW_NNLOPS/200807_095842/0000/WW_Powheg_NNLOPS.root");
+//         f = new TFile("/eos/user/h/hongyi/original/nnlops2018.root");
 //         f = new TFile("WW_pair_production_1.root");
          f = new TFile("/eos/cms/store/group/phys_higgs/cmshww/arun/WW/MCStudies/WW_Powheg/WWTo2L2Nu_13TeV-powheg/crab_WW_Powheg/200807_103443/0000/WW_Powheg.root");
       }

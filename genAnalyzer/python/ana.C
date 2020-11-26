@@ -254,7 +254,7 @@ void ana::Loop()
         status16.clear();
 //	TFile *ofile = new TFile("ww.root", "recreate");
 //        TFile ofile("ww.root", "recreate");
-        TFile *ofile = new TFile("/eos/user/h/hongyi/ww_data/Powheg/ww11.root", "recreate");
+        TFile *ofile = new TFile("/eos/user/h/hongyi/ww_data/Powheg/powheg.root", "recreate");
 //        TFile *ofile = new TFile("/afs/cern.ch/user/h/hongyi/CMSSW_10_3_0/src/GenAnalyzer/genAnalyzer/python/ww18.root", "recreate");
 	ofile->cd();
         TTree* ww  = new TTree("ww", "ww");

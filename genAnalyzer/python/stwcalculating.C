@@ -35,6 +35,7 @@ void stwcalculating::Loop()
    double sum = 0;
    double plus = 0;
    double minus = 0;
+   double zeros = 0;
    Long64_t nbytes = 0, nb = 0;
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
       Long64_t ientry = LoadTree(jentry);
@@ -45,7 +46,8 @@ void stwcalculating::Loop()
 	if (startweight > 0)  plus++;
 	else minus ++;
    }
-	std::cout << sum << std::endl;
-        std::cout << minus << std::endl;
-        std::cout << plus << std::endl;
+	std::cout << "sum"<<sum << std::endl;
+        std::cout << "minus"<<minus << std::endl;
+        std::cout << "plus"<<plus << std::endl;
+        std::cout << "zeros"<<zeros << std::endl;
 }
