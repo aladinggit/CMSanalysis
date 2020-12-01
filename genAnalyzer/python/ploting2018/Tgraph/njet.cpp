@@ -188,6 +188,7 @@ auto gr = new TGraphErrors(h1 ->GetNbinsX(),X ,Y , 0, E);
   tleg1->Draw("sames");
   c1->cd();
 
+h1->Write();
 c1->SaveAs("Number of jets.png");
 c1->Write();
 file->Close();
